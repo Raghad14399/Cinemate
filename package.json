@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://raghad14399.github.io/cinemate/",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.0.11",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "express": "^4.21.2",
+    "gh-pages": "^6.3.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.2",
     "rc-drawer": "^7.2.0",
@@ -31,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
