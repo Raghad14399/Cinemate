@@ -80,6 +80,37 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+
+
+## Project Structure Overview
+
+Below is a high-level overview of the most important folders & files to help you navigate the codebase quickly:
+
+- `src/` – all application source code.
+  - `api/`
+    - `config.js` – Axios instance with base URL, interceptors, and auth token handling.
+    - `services.js` – Centralised API wrapper functions (auth, movies, halls, etc.).
+  - `Components/` – Re-usable UI pieces.
+    - `Table2.js` – Generic table used in admin dashboards.
+    - `Modals/` – Dialog components such as `EditeEmploye.js`.
+    - `Single/`, `Home/`, etc. – Feature-specific widgets (e.g., `MovieInfo.js`, `Promos.js`).
+  - `Screens/` – Top-level pages routed by React Router.
+    - `Dashboard/Admin/` – Admin pages like `Users.js`, `Halls.js`, `Employes.js` with CRUD logic.
+    - `Dashboard/UpdateProfile.js` – User profile edit screen.
+  - `Layout/` – Global UI pieces (e.g., `NavBar`, `SideBar`).
+- `public/` – Static assets served directly.
+- `.env` – Environment variables such as `REACT_APP_API_URL`.
+
+### Development Flow
+1. Clone the repo & run `npm i` to install dependencies.
+2. Start the dev server with `npm start` (served at `http://localhost:3000`).
+3. Most business logic lives in `src/api/services.js` and corresponding page in `src/Screens/…`.
+4. Styling is done with Tailwind CSS utility classes defined inline.
+5. Build for production using `npm run build`.
+
+Happy coding! :rocket:
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -111,31 +142,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ---
-
-## Project Structure Overview
-
-Below is a high-level overview of the most important folders & files to help you navigate the codebase quickly:
-
-- `src/` – all application source code.
-  - `api/`
-    - `config.js` – Axios instance with base URL, interceptors, and auth token handling.
-    - `services.js` – Centralised API wrapper functions (auth, movies, halls, etc.).
-  - `Components/` – Re-usable UI pieces.
-    - `Table2.js` – Generic table used in admin dashboards.
-    - `Modals/` – Dialog components such as `EditeEmploye.js`.
-    - `Single/`, `Home/`, etc. – Feature-specific widgets (e.g., `MovieInfo.js`, `Promos.js`).
-  - `Screens/` – Top-level pages routed by React Router.
-    - `Dashboard/Admin/` – Admin pages like `Users.js`, `Halls.js`, `Employes.js` with CRUD logic.
-    - `Dashboard/UpdateProfile.js` – User profile edit screen.
-  - `Layout/` – Global UI pieces (e.g., `NavBar`, `SideBar`).
-- `public/` – Static assets served directly.
-- `.env` – Environment variables such as `REACT_APP_API_URL`.
-
-### Development Flow
-1. Clone the repo & run `npm i` to install dependencies.
-2. Start the dev server with `npm start` (served at `http://localhost:3000`).
-3. Most business logic lives in `src/api/services.js` and corresponding page in `src/Screens/…`.
-4. Styling is done with Tailwind CSS utility classes defined inline.
-5. Build for production using `npm run build`.
-
-Happy coding! :rocket:
